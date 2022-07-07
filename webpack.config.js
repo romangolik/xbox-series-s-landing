@@ -64,7 +64,7 @@ const config = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          scaleFrom: path.resolve(__dirname, './src/assets'),
+          from: path.resolve(__dirname, './src/assets'),
           to: './assets',
         },
       ]

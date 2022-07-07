@@ -6,7 +6,8 @@
   "scripts": {
     "serve": "webpack serve --mode=development --progress",
     "build": "webpack",
-    "build:prod": "webpack --config webpack.config.prod.ts"
+    "build:prod": "webpack --config webpack.config.prod.ts",
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
@@ -32,6 +33,7 @@
   "dependencies": {
     "aos": "2.3.4",
     "copy-webpack-plugin": "10.2.4",
+    "gh-pages": "4.0.0",
     "webpack-merge": "5.8.0"
   }
 }
