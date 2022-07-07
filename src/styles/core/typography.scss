@@ -1,0 +1,95 @@
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  font-size: 17px;
+  line-height: 1.2;
+
+  font-weight: 600;
+}
+
+p {
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 1.5;
+  letter-spacing: -0.03em;
+}
+
+button {
+  font-size: 15px;
+  line-height: 1.2;
+
+  font-weight: 700;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 171px;
+  line-height: 0.908;
+  letter-spacing: -0.03em;
+}
+
+h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 91px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+h4 {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+h5 {
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+}
+
+@media screen and (max-width: 1025px) {
+  h1 {
+    font-size: 120px;
+  }
+
+  h2 {
+    font-size: 72px;
+  }
+}
+
+
+@media screen and (max-width: 721px) {
+  h1 {
+    font-size: 80px;
+  }
+
+  h2 {
+    font-size: 48px;
+  }
+
+  h3 {
+    font-size: 48px;
+  }
+
+  h4 {
+    font-size: 37px;
+  }
+
+  h5 {
+    font-size: 15px;
+  }
+}

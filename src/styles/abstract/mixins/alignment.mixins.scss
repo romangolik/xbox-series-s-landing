@@ -1,0 +1,51 @@
+@mixin flexAlignment($vertical: false, $horizontal: false, $wrap: false) {
+  display: flex;
+
+  @if($vertical) {
+    align-items: $vertical;
+  }
+
+  @if($horizontal) {
+    justify-content: $horizontal;
+  }
+
+  @if($wrap) {
+    flex-wrap: wrap;
+  }
+}
+
+@mixin absoluteAlignment($verticalAlignmentType: false, $horizontalAlignmentType: false) {
+  position: absolute;
+
+  @if ($verticalAlignmentType == 'center' and $horizontalAlignmentType == 'center') {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else {
+    @if ($verticalAlignmentType == 'top') {
+      top: 0;
+    }
+
+    @if ($verticalAlignmentType == 'center') {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @if ($verticalAlignmentType == 'bottom') {
+      bottom: 0;
+    }
+
+    @if ($horizontalAlignmentType == 'left') {
+      left: 0;
+    }
+
+    @if ($horizontalAlignmentType == 'center') {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @if ($horizontalAlignmentType == 'right') {
+      right: 0;
+    }
+  }
+}

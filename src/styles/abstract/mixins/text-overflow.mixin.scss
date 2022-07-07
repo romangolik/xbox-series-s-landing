@@ -1,0 +1,20 @@
+@function is-number($value) {
+  @return type-of($value) == 'number';
+}
+
+@mixin text-overflow($linesCount: false) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @if($linesCount) {
+    @if (is-number($linesCount)) {
+      display: -webkit-box;
+      -webkit-line-clamp: $linesCount;
+      -webkit-box-orient: vertical;
+    } @else {
+      @error 'Invalid lines count value';
+    }
+  } @else {
+    white-space: nowrap;
+  }
+}

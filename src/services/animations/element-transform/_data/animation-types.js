@@ -1,0 +1,8 @@
+export const ANIMATION_TYPES = {
+    'ZOOM_IN': 0,
+    'ZOOM_OUT': 1,
+    'MOVE_TO_RIGHT': 2,
+    'MOVE_TO_LEFT': 3,
+    'CLOCKWISE_ROTATE': 4,
+    'COUNTERCLOCKWISE_ROTATE': 5,
+}

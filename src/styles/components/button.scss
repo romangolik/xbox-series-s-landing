@@ -1,0 +1,22 @@
+button {
+  border: none;
+  outline: none;
+}
+
+.button {
+  padding: 20px 30px;
+
+  color: var(--light-black);
+  background-color: var(--green);
+
+  transition: all 0.2s ease;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(165, 250, 21, 50%);
+  }
+}
+
+.button_uppercase {
+  text-transform: uppercase;
+}

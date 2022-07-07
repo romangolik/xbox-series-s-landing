@@ -1,0 +1,25 @@
+.link {
+  font-size: 17px;
+  line-height: 21px;
+
+  color: var(--white);
+
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--green);
+    text-shadow: 0 0 20px rgba(165, 250, 21, 50%);
+  }
+}
+
+.link_primary {
+  color: var(--green);
+}
+
+.link_secondary {
+  color: #A0A0A0;
+}
+
+.link_uppercase {
+  text-transform: uppercase;
+}
