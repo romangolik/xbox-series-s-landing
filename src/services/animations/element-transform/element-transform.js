@@ -1,8 +1,20 @@
 import { ANIMATION_TYPES } from './_data/animation-types.js';
 
+window.requestAnimFrame = (function(){
+    return  window.requestAnimationFrame       ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame    ||
+        window.oRequestAnimationFrame      ||
+        window.msRequestAnimationFrame     ||
+        function( callback ){
+            window.setTimeout(callback, 1000 / 60);
+        };
+})();
+
 export class ElementTransformController {
     html;
     animationFunctions = [];
+    ticking = [false, false, false, false];
 
     ANIMATION_TRANSFORM_FUNCTIONS = {
         [ANIMATION_TYPES.ZOOM_IN]: (config, multiplier) =>
@@ -26,7 +38,18 @@ export class ElementTransformController {
 
     initScrollEvent() {
         window.addEventListener('scroll', () => {
-            this.animationFunctions.forEach(animationFunction => animationFunction());
+            /*const htmlScrollTop = this.html.scrollTop;
+            const htmlScrollBottom = htmlScrollTop + window.innerHeight;*/
+
+            this.animationFunctions.forEach((animationFunction, index) => {
+                if (!this.ticking[index]) {
+                    this.ticking[index] = true;
+                    requestAnimFrame(() => {
+                        animationFunction();
+                        this.ticking[index] = false;
+                    });
+                }
+            });
         },{ passive: true });
     }
 
@@ -39,12 +62,14 @@ export class ElementTransformController {
 
         const animationFunction = () => {
             const htmlScrollTop = this.html.scrollTop;
-            const htmlScrollBottom = this.html.scrollTop + window.innerHeight;
+            const htmlScrollBottom = htmlScrollTop + window.innerHeight;
+
+            const triggerElementHeight = elementWrapper ? elementWrapper.offsetHeight : element.offsetHeight;
 
             const animationStartTrigger = elementWrapper ? elementWrapper.offsetTop : element.offsetTop;
-            const animationEndTrigger = elementWrapper ? (elementWrapper.offsetTop + elementWrapper.offsetHeight) : (element.offsetTop + element.offsetHeight);
+            const animationEndTrigger = animationStartTrigger + triggerElementHeight;
 
-            const animationDurationDistance = elementWrapper.offsetHeight + window.innerHeight;
+            const animationDurationDistance = triggerElementHeight + window.innerHeight;
             const animationPassedDistance = htmlScrollBottom - animationStartTrigger;
 
             if (htmlScrollBottom >= animationStartTrigger && htmlScrollTop <= animationEndTrigger) {

@@ -224,6 +224,9 @@
     object-fit: cover;
 
     transition: 0.2s ease-out;
+
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   .slide-image-block {
